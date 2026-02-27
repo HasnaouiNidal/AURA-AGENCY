@@ -2,8 +2,8 @@ import React from 'react';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 import Saas03App from '../CATALOG/SAAS/Saas_03/src/App';
-import Ecommerce01App from '../CATALOG/Ecommerce/E-commerce_01/src/App';
-import Ecommerce02App from '../CATALOG/Ecommerce/E-commerce_02/src/App';
+import Ecommerce01Demo from './pages/demos/Ecommerce01Demo';
+import Ecommerce02Demo from './pages/demos/Ecommerce02Demo';
 import Home from './pages/Home';
 import About from './pages/About';
 import Catalog from './pages/Catalog';
@@ -17,8 +17,8 @@ const App: React.FC = () => {
     <Router>
       <Routes>
         <Route path="/saas-03/*" element={<Saas03App />} />
-        <Route path="/ecommerce-01/*" element={<Ecommerce01App />} />
-        <Route path="/ecommerce-02/*" element={<Ecommerce02App />} />
+        <Route path="/ecommerce-01/*" element={<Ecommerce01Demo />} />
+        <Route path="/ecommerce-02/*" element={<Ecommerce02Demo />} />
         <Route path="*" element={
           <Layout>
             <Routes>

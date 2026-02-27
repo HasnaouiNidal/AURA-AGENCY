@@ -89,22 +89,26 @@ const CatalogDetail: React.FC = () => {
       <Section className="bg-[#050505]">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="relative group overflow-hidden rounded-xl bg-[#0F1115] w-full aspect-video">
-              <img src={ecom1} className="w-full h-full object-cover object-top transition-all duration-700" alt="Product" />
-              <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-4">
-                <Link to="/ecommerce-01">
-                  <Button variant="primary">View Live Demo</Button>
-                </Link>
-                <Button variant="outline">View Documentation</Button>
+            <div className="w-full aspect-video overflow-hidden">
+              <div className="relative group rounded-xl bg-[#0F1115] w-full h-full overflow-hidden">
+                <img src={ecom1} className="w-full h-full object-cover object-top" alt="Product" />
+                <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-4">
+                  <Link to="/ecommerce-01">
+                    <Button variant="primary">View Live Demo</Button>
+                  </Link>
+                  <Button variant="outline">View Documentation</Button>
+                </div>
               </div>
             </div>
-            <div className="relative group overflow-hidden rounded-xl bg-[#0F1115] w-full aspect-video">
-              <img src={ecom2} className="w-full h-full object-cover object-top transition-all duration-700" alt="Product" />
-              <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-4">
-                <Link to="/ecommerce-02">
-                  <Button variant="primary">View Live Demo</Button>
-                </Link>
-                <Button variant="outline">View Documentation</Button>
+            <div className="w-full aspect-video overflow-hidden">
+              <div className="relative group rounded-xl bg-[#0F1115] w-full h-full overflow-hidden">
+                <img src={ecom2} className="w-full h-full object-cover object-top" alt="Product" />
+                <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-4">
+                  <Link to="/ecommerce-02">
+                    <Button variant="primary">View Live Demo</Button>
+                  </Link>
+                  <Button variant="outline">View Documentation</Button>
+                </div>
               </div>
             </div>
           </div>

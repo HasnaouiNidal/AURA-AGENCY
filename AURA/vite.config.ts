@@ -21,6 +21,10 @@ export default defineConfig(({ mode }) => {
       resolve: {
         alias: {
           '@': path.resolve(__dirname, '.'),
+          tailwindcss: path.resolve(__dirname, 'node_modules/tailwindcss/index.css'),
+          motion: path.resolve(__dirname, 'node_modules/motion'),
+          'motion/react': path.resolve(__dirname, 'node_modules/motion/dist/es/react.mjs'),
+          recharts: path.resolve(__dirname, 'node_modules/recharts'),
         }
       }
     };

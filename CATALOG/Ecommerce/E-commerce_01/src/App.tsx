@@ -858,7 +858,7 @@ export default function App() {
   const cartCount = useMemo(() => cartItems.reduce((acc, item) => acc + item.quantity, 0), [cartItems]);
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="flex flex-col">
       <Navbar 
         onCartOpen={() => setIsCartOpen(true)} 
         cartCount={cartCount}
