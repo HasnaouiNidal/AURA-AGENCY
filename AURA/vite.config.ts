@@ -21,6 +21,13 @@ export default defineConfig(({ mode }) => {
       resolve: {
         alias: {
           '@': path.resolve(__dirname, '.'),
+          react: path.resolve(__dirname, 'node_modules/react'),
+          'react-dom': path.resolve(__dirname, 'node_modules/react-dom'),
+          'react/jsx-runtime': path.resolve(__dirname, 'node_modules/react/jsx-runtime.js'),
+          'react-router-dom': path.resolve(__dirname, 'node_modules/react-router-dom'),
+          recharts: path.resolve(__dirname, 'node_modules/recharts'),
+          'lucide-react': path.resolve(__dirname, 'node_modules/lucide-react'),
+          motion: path.resolve(__dirname, 'node_modules/motion'),
         }
       }
     };
