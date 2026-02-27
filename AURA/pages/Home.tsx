@@ -306,7 +306,7 @@ const Home: React.FC = () => {
             ].map((item, i) => (
               <FadeIn key={item.id} delay={i * 100}>
                 <Link to={`/catalog/${item.id}`} className="group block">
-                  <div className="relative overflow-hidden rounded-2xl bg-surface aspect-[4/3] mb-4">
+                  <div className="relative overflow-hidden rounded-2xl bg-surface aspect-[16/9] mb-4">
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors z-10" />
                     <img src={item.img} alt={item.title} className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110" />
                     <div className="absolute bottom-4 left-4 z-20 bg-black/50 backdrop-blur-md px-3 py-1 rounded-full text-xs border border-white/10">{item.cat}</div>
