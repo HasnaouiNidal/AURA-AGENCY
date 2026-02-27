@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Section, FadeIn, MeshBackground, Button } from '../components/UI';
+import { ProjectGrid, ProjectCard } from '../components/ProjectSystem';
 import { ArrowRight } from 'lucide-react';
 
 const categories = [
@@ -92,8 +93,8 @@ const Catalog: React.FC = () => {
                 key={f}
                 onClick={() => setActiveFilter(f)}
                 className={`px-4 py-2 rounded-full text-xs font-medium transition-all duration-300 ${activeFilter === f
-                    ? 'bg-accentPrimary text-white shadow-[0_0_16px_rgba(139,92,246,0.4)]'
-                    : 'bg-surface text-textSecondary hover:text-white hover:bg-white/10'
+                  ? 'bg-accentPrimary text-white shadow-[0_0_16px_rgba(139,92,246,0.4)]'
+                  : 'bg-surface text-textSecondary hover:text-white hover:bg-white/10'
                   }`}
               >
                 {f}
@@ -106,29 +107,22 @@ const Catalog: React.FC = () => {
       {/* Grid */}
       <Section>
         <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <ProjectGrid>
             {visible.map((cat, i) => (
               <FadeIn key={cat.id} delay={i * 80}>
-                <Link to={`/catalog/${cat.id}`} className="group block">
-                  <div className="relative overflow-hidden rounded-2xl bg-surface aspect-[4/3] mb-4">
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors duration-300 z-10" />
-                    <img
-                      src={cat.image}
-                      alt={cat.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                    <div className="absolute top-4 right-4 z-20 bg-black/50 backdrop-blur-md px-2 py-1 rounded text-xs border border-white/10 text-textSecondary">{cat.count}</div>
-                    <div className="absolute bottom-4 left-4 z-20 bg-black/50 backdrop-blur-md px-3 py-1 rounded-full text-xs border border-white/10">{cat.tag}</div>
-                  </div>
-                  <h3 className="text-xl font-bold mb-2 group-hover:text-accentPrimary transition-colors">{cat.title}</h3>
-                  <p className="text-textSecondary text-sm leading-relaxed mb-3">{cat.description}</p>
-                  <p className="text-sm text-accentPrimary flex items-center gap-2">
-                    Explore Designs <ArrowRight size={14} className="-translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all" />
-                  </p>
-                </Link>
+                <ProjectCard
+                  project={{
+                    id: cat.id,
+                    title: cat.title,
+                    category: cat.tag,
+                    description: cat.description, // Added count below since count badge was removed
+                    image: cat.image,
+                    docsUrl: `/catalog/${cat.id}`
+                  }}
+                />
               </FadeIn>
             ))}
-          </div>
+          </ProjectGrid>
         </div>
       </Section>
 
