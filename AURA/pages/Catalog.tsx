@@ -2,13 +2,17 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Section, FadeIn, MeshBackground, Button } from '../components/UI';
 import { ArrowRight } from 'lucide-react';
+import saasHero from '../assets/saas03-hero.png';
+import ecommerceHero from '../assets/E-commerce_01-hero.png';
+import cryptoHero from '../assets/CRYPTO_01-hero.png';
+import analyticsHero from '../assets/analytics_01-hero.png';
 
 const categories = [
   {
     id: 'saas',
     title: 'SaaS Platform',
     description: 'Conversion-engineered interfaces for software businesses. Designed to drive trials, demos, and MRR growth.',
-    image: 'https://picsum.photos/id/1/800/600',
+    image: saasHero,
     count: '12 Designs',
     tag: 'Software',
   },
@@ -16,7 +20,7 @@ const categories = [
     id: 'ecommerce',
     title: 'Luxury E-Commerce',
     description: 'Premium retail experiences that elevate perception and increase average order value through immersive design.',
-    image: 'https://picsum.photos/id/2/800/600',
+    image: ecommerceHero,
     count: '8 Designs',
     tag: 'Retail',
   },
@@ -24,7 +28,7 @@ const categories = [
     id: 'fintech',
     title: 'Fintech & Crypto',
     description: 'Trust-first financial platforms and blockchain products. Clean, data-dense, and confidence-inspiring.',
-    image: 'https://picsum.photos/id/3/800/600',
+    image: cryptoHero,
     count: '6 Designs',
     tag: 'Finance',
   },
@@ -40,7 +44,7 @@ const categories = [
     id: 'analytics',
     title: 'Analytics Dashboard',
     description: 'Intelligence-forward data products and internal dashboards. Clarity from complexity.',
-    image: 'https://picsum.photos/id/5/800/600',
+    image: analyticsHero,
     count: '5 Designs',
     tag: 'Analytics',
   },
@@ -110,12 +114,12 @@ const Catalog: React.FC = () => {
             {visible.map((cat, i) => (
               <FadeIn key={cat.id} delay={i * 80}>
                 <Link to={`/catalog/${cat.id}`} className="group block">
-                  <div className="relative overflow-hidden rounded-2xl bg-surface aspect-[4/3] mb-4">
+                  <div className="relative w-full h-64 overflow-hidden rounded-2xl bg-surface mb-4">
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors duration-300 z-10" />
                     <img
                       src={cat.image}
                       alt={cat.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
                     />
                     <div className="absolute top-4 right-4 z-20 bg-black/50 backdrop-blur-md px-2 py-1 rounded text-xs border border-white/10 text-textSecondary">{cat.count}</div>
                     <div className="absolute bottom-4 left-4 z-20 bg-black/50 backdrop-blur-md px-3 py-1 rounded-full text-xs border border-white/10">{cat.tag}</div>

@@ -82,14 +82,21 @@ const CatalogDetail: React.FC = () => {
             <p className="text-textSecondary max-w-xl mx-auto mb-12 font-light">
               Designed for high-ticket items. Minimalist galleries, smooth transitions, and premium checkout experiences.
             </p>
-            <Button variant="gold">Inquire for Pricing</Button>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Link to="/ecommerce-01">
+                <Button variant="gold">View Ecommerce 01 Live Demo</Button>
+              </Link>
+              <Link to="/ecommerce-02">
+                <Button variant="outline">View Ecommerce 02 Live Demo</Button>
+              </Link>
+            </div>
           </FadeIn>
         </div>
       </Section>
-      <Section className="bg-[#050505]">
+      <Section className="py-0 bg-[#050505]">
         <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="relative group overflow-hidden rounded-xl bg-[#0F1115] w-full aspect-video">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pb-20">
+            <div className="relative group w-full aspect-video overflow-hidden rounded-xl bg-[#0F1115]">
               <img src={ecom1} className="w-full h-full object-cover object-top transition-all duration-700" alt="Product" />
               <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-4">
                 <Link to="/ecommerce-01">
@@ -98,7 +105,7 @@ const CatalogDetail: React.FC = () => {
                 <Button variant="outline">View Documentation</Button>
               </div>
             </div>
-            <div className="relative group overflow-hidden rounded-xl bg-[#0F1115] w-full aspect-video">
+            <div className="relative group w-full aspect-video overflow-hidden rounded-xl bg-[#0F1115]">
               <img src={ecom2} className="w-full h-full object-cover object-top transition-all duration-700" alt="Product" />
               <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-4">
                 <Link to="/ecommerce-02">
