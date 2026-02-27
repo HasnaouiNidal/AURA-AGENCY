@@ -5,10 +5,8 @@ import {
   Plus, Star, TrendingUp, Clock, BarChart3, Globe, Shield
 } from 'lucide-react';
 import { Button, Card, Section, FadeIn, MeshBackground, HeroBackground } from '../components/UI';
-import saasHero from '../assets/saas03-hero.png';
-import analyticsImg from '../assets/analytics_01-hero.png';
-import cryptoImg from '../assets/CRYPTO_01-hero.png';
-import ecommerceImg from '../assets/E-commerce_01-hero.png';
+import ProjectGrid from '../components/catalog/ProjectGrid';
+import { catalogProjects } from '../data/catalog';
 
 const Home: React.FC = () => {
   return (
@@ -295,30 +293,7 @@ const Home: React.FC = () => {
             </FadeIn>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              { id: 'saas', title: 'SaaS Platform', cat: 'Software', img: saasHero },
-              { id: 'ecommerce', title: 'Luxury E-Commerce', cat: 'Retail', img: ecommerceImg },
-              { id: 'fintech', title: 'Fintech Protocol', cat: 'Finance', img: cryptoImg },
-              { id: 'micro-saas', title: 'Micro SaaS Wrapper', cat: 'Tools', img: 'https://picsum.photos/id/4/800/600' },
-              { id: 'analytics', title: 'Data Dashboard', cat: 'Analytics', img: analyticsImg },
-              { id: 'portfolio', title: 'Creative Agency', cat: 'Portfolio', img: 'https://picsum.photos/id/6/800/600' },
-            ].map((item, i) => (
-              <FadeIn key={item.id} delay={i * 100}>
-                <Link to={`/catalog/${item.id}`} className="group block">
-                  <div className="relative overflow-hidden rounded-2xl bg-surface aspect-[4/3] mb-4">
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors z-10" />
-                    <img src={item.img} alt={item.title} className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110" />
-                    <div className="absolute bottom-4 left-4 z-20 bg-black/50 backdrop-blur-md px-3 py-1 rounded-full text-xs border border-white/10">{item.cat}</div>
-                  </div>
-                  <h3 className="text-xl font-bold mb-1 group-hover:text-accentPrimary transition-colors">{item.title}</h3>
-                  <p className="text-sm text-textSecondary flex items-center gap-2">
-                    View Details <ArrowRight size={14} className="-translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all" />
-                  </p>
-                </Link>
-              </FadeIn>
-            ))}
-          </div>
+          <ProjectGrid projects={catalogProjects.slice(0, 6)} />
         </div>
       </Section>
 
