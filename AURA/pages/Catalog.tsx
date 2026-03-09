@@ -1,67 +1,19 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { Section, FadeIn, MeshBackground, Button } from '../components/UI';
 import { ProjectGrid, ProjectCard } from '../components/ProjectSystem';
-import { ArrowRight } from 'lucide-react';
-
-const categories = [
-  {
-    id: 'saas',
-    title: 'SaaS Platform',
-    description: 'Conversion-engineered interfaces for software businesses. Designed to drive trials, demos, and MRR growth.',
-    image: 'https://picsum.photos/id/1/800/600',
-    count: '12 Designs',
-    tag: 'Software',
-  },
-  {
-    id: 'ecommerce',
-    title: 'Luxury E-Commerce',
-    description: 'Premium retail experiences that elevate perception and increase average order value through immersive design.',
-    image: 'https://picsum.photos/id/2/800/600',
-    count: '8 Designs',
-    tag: 'Retail',
-  },
-  {
-    id: 'fintech',
-    title: 'Fintech & Crypto',
-    description: 'Trust-first financial platforms and blockchain products. Clean, data-dense, and confidence-inspiring.',
-    image: 'https://picsum.photos/id/3/800/600',
-    count: '6 Designs',
-    tag: 'Finance',
-  },
-  {
-    id: 'micro-saas',
-    title: 'Micro SaaS',
-    description: 'Lean, focused web systems for micro-product builders. Maximum conversion, minimal surface area.',
-    image: 'https://picsum.photos/id/4/800/600',
-    count: '10 Designs',
-    tag: 'Tools',
-  },
-  {
-    id: 'analytics',
-    title: 'Analytics Dashboard',
-    description: 'Intelligence-forward data products and internal dashboards. Clarity from complexity.',
-    image: 'https://picsum.photos/id/5/800/600',
-    count: '5 Designs',
-    tag: 'Analytics',
-  },
-  {
-    id: 'portfolio',
-    title: 'Agency & Portfolio',
-    description: 'High-impact creative showcases for studios, agencies, and independent designers.',
-    image: 'https://picsum.photos/id/6/800/600',
-    count: '9 Designs',
-    tag: 'Creative',
-  },
-];
+import { getCategoryCards, CATEGORY_META } from '../data/catalog';
 
 const Catalog: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState('All');
-  const filters = ['All', 'Software', 'Retail', 'Finance', 'Tools', 'Analytics', 'Creative'];
+
+  // Extract unique filters from CATEGORY_META
+  const filters = ['All', ...Array.from(new Set(Object.values(CATEGORY_META).map(m => m.tag)))];
+
+  const allCategories = getCategoryCards();
 
   const visible = activeFilter === 'All'
-    ? categories
-    : categories.filter(c => c.tag === activeFilter);
+    ? allCategories
+    : allCategories.filter(c => c.category === activeFilter);
 
   return (
     <>
@@ -108,16 +60,17 @@ const Catalog: React.FC = () => {
       <Section>
         <div className="container mx-auto px-6">
           <ProjectGrid>
-            {visible.map((cat, i) => (
-              <FadeIn key={cat.id} delay={i * 80}>
+            {visible.map((categoryCard, i) => (
+              <FadeIn key={categoryCard.id} delay={i * 80}>
                 <ProjectCard
                   project={{
-                    id: cat.id,
-                    title: cat.title,
-                    category: cat.tag,
-                    description: cat.description, // Added count below since count badge was removed
-                    image: cat.image,
-                    docsUrl: `/catalog/${cat.id}`
+                    id: categoryCard.id,
+                    title: categoryCard.title,
+                    category: categoryCard.category,
+                    description: categoryCard.description,
+                    image: categoryCard.previewImage,
+                    docsUrl: categoryCard.detailRoute,
+                    demoUrl: categoryCard.liveDemoRoute
                   }}
                 />
               </FadeIn>

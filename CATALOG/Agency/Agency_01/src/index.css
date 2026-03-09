@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  
+  --color-aura-bg: #0F1115;
+  --color-aura-surface: #1A1D24;
+  --color-aura-accent-start: #6EE7FF;
+  --color-aura-accent-end: #3B82F6;
+}
+
+body {
+  background-color: var(--color-aura-bg);
+  color: white;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-aura-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-aura-surface);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2A2D35;
+}

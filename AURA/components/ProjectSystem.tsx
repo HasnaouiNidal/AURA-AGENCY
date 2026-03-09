@@ -26,7 +26,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, className = '
                 <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                    className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
                 />
                 {/* Gradient Overlay for Text Readability */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
@@ -50,11 +50,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, className = '
 
                 {/* Buttons */}
                 <div className="flex items-center gap-3">
-                    {project.demoUrl ? (
-                        <Button to={project.demoUrl} variant="primary" className="flex-1 py-3 text-xs">
-                            Live Demo
-                        </Button>
-                    ) : null}
+                    <Button to={project.demoUrl || '#'} variant="primary" className="flex-1 py-3 text-xs">
+                        Live Demo
+                    </Button>
                     <Button to={project.docsUrl || `/catalog/${project.id}`} variant="secondary" className="flex-1 py-3 text-xs">
                         View Details
                     </Button>

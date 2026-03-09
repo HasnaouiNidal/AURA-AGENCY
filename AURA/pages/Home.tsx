@@ -6,12 +6,11 @@ import {
 } from 'lucide-react';
 import { Button, Card, Section, FadeIn, MeshBackground, HeroBackground } from '../components/UI';
 import { ProjectGrid, ProjectCard } from '../components/ProjectSystem';
-import saasHero from '../assets/saas03-hero.png';
-import analyticsImg from '../assets/analytics_01-hero.png';
-import cryptoImg from '../assets/CRYPTO_01-hero.png';
-import ecommerceImg from '../assets/E-commerce_01-hero.png';
+import { getCategoryCards } from '../data/catalog';
 
 const Home: React.FC = () => {
+  const categories = getCategoryCards();
+
   return (
     <>
       {/* ============================================================
@@ -297,25 +296,17 @@ const Home: React.FC = () => {
           </div>
 
           <ProjectGrid>
-            {[
-              { id: 'saas', title: 'SaaS Platform', cat: 'Software', img: saasHero },
-              { id: 'ecommerce', title: 'Luxury E-Commerce', cat: 'Retail', img: ecommerceImg },
-              { id: 'fintech', title: 'Fintech Protocol', cat: 'Finance', img: cryptoImg },
-              { id: 'micro-saas', title: 'Micro SaaS Wrapper', cat: 'Tools', img: 'https://picsum.photos/id/4/800/600' },
-              { id: 'analytics', title: 'Data Dashboard', cat: 'Analytics', img: analyticsImg },
-              { id: 'portfolio', title: 'Creative Agency', cat: 'Portfolio', img: 'https://picsum.photos/id/6/800/600' },
-            ].map((item, i) => (
-              <FadeIn key={item.id} delay={i * 100}>
-                <ProjectCard
-                  project={{
-                    id: item.id,
-                    title: item.title,
-                    category: item.cat,
-                    description: `Explore our premium ${item.title.toLowerCase()} designs.`, // Generic description
-                    image: item.img,
-                    docsUrl: `/catalog/${item.id}`
-                  }}
-                />
+            {categories.map((categoryCard, i) => (
+              <FadeIn key={categoryCard.id} delay={i * 100}>
+                <ProjectCard project={{
+                  id: categoryCard.id,
+                  title: categoryCard.title,
+                  category: categoryCard.category,
+                  description: categoryCard.description,
+                  image: categoryCard.previewImage,
+                  docsUrl: categoryCard.detailRoute,
+                  demoUrl: categoryCard.liveDemoRoute
+                }} />
               </FadeIn>
             ))}
           </ProjectGrid>
