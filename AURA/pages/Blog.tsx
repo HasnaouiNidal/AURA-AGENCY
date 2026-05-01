@@ -22,17 +22,19 @@ const Blog: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {posts.map((post, i) => (
                     <FadeIn key={i} delay={i * 100}>
-                        <div className="group cursor-pointer">
-                            <div className="aspect-video bg-surface rounded-xl mb-6 overflow-hidden border border-white/5">
-                                <div className="w-full h-full bg-gradient-to-tr from-accentPrimary/20 to-bgSecondary group-hover:scale-105 transition-transform duration-700" />
+                        <div className="group cursor-pointer bg-surface/40 border border-textPrimary/5 rounded-2xl hover:-translate-y-1 hover:border-accentPrimary/40 hover:shadow-xl hover:shadow-accentPrimary/10 transition-all duration-300 ease-out flex flex-col h-full overflow-hidden">
+                            <div className="h-48 w-full bg-surface border-b border-textPrimary/5 overflow-hidden relative">
+                                <div className="absolute inset-0 bg-gradient-to-tr from-accentPrimary/20 to-bgSecondary group-hover:scale-105 transition-transform duration-700" />
                             </div>
-                            <div className="flex items-center gap-4 text-xs font-bold uppercase tracking-wider text-accentSecondary mb-3">
-                                <span>{post.cat}</span>
-                                <span className="text-white/20">•</span>
-                                <span className="text-textSecondary font-normal normal-case">{post.date}</span>
+                            <div className="p-6 flex flex-col flex-1">
+                                <div className="flex items-center gap-3 mb-4">
+                                    <span className="bg-accentPrimary/10 text-accentPrimary text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-widest">{post.cat}</span>
+                                    <span className="text-textPrimary/20">•</span>
+                                    <span className="text-textSecondary text-xs font-medium">{post.date}</span>
+                                </div>
+                                <h2 className="text-2xl font-serif font-bold mb-3 text-textPrimary group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-accentPrimary group-hover:to-blue-500 transition-all duration-300">{post.title}</h2>
+                                <p className="text-textSecondary text-sm leading-relaxed flex-1">{post.excerpt}</p>
                             </div>
-                            <h2 className="text-2xl font-serif font-bold mb-3 group-hover:text-accentPrimary transition-colors">{post.title}</h2>
-                            <p className="text-textSecondary text-sm leading-relaxed">{post.excerpt}</p>
                         </div>
                     </FadeIn>
                 ))}

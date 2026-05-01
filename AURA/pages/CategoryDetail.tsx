@@ -54,7 +54,7 @@ const CategoryDetail: React.FC = () => {
                 </div>
             </Section>
 
-            <Section className="bg-bgSecondary border-t border-white/5 py-20 min-h-[40vh]">
+            <Section className="bg-bgSecondary border-t border-textPrimary/5 py-20 min-h-[40vh]">
                 <div className="container mx-auto px-6">
                     <ProjectGrid>
                         {categoryProjects.map((project, i) => (

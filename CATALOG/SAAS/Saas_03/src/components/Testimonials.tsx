@@ -3,17 +3,17 @@ import { motion } from 'motion/react';
 
 const testimonials = [
   {
-    quote: "AURA didn't just give us data; it gave us a strategy. We cut our analysis time by 75% and identified a $2M revenue leak in our first week.",
+    quote: "Aura Insights didn't just give us data; it gave us immediate clarity. We identified key growth metrics in our first week of using the platform.",
     author: "Sarah Chen",
-    role: "CEO at Velocity AI",
-    metric: "75% Time Saved",
+    role: "Director of Operations",
+    metric: "Unprecedented Clarity",
     image: "https://picsum.photos/seed/sarah/100/100"
   },
   {
-    quote: "The investor reports alone are worth the subscription. Our board meetings are now focused on growth instead of debating numbers.",
+    quote: "An incredibly intuitive and beautiful product. It handles complex data streams with the elegance of a much larger enterprise tool.",
     author: "Marcus Thorne",
-    role: "Founder of Nexus Labs",
-    metric: "12% Churn Reduction",
+    role: "Technical Founder",
+    metric: "Premium Experience",
     image: "https://picsum.photos/seed/marcus/100/100"
   }
 ];
@@ -22,7 +22,7 @@ export const Testimonials = () => {
   return (
     <section className="py-32 px-6 relative overflow-hidden">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-aura-accent-start/5 blur-[120px] rounded-full -z-10" />
-      
+
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12">
           {testimonials.map((t, i) => (
@@ -37,7 +37,7 @@ export const Testimonials = () => {
               <p className="text-xl md:text-2xl font-medium mb-10 leading-relaxed italic">
                 {t.quote}
               </p>
-              
+
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-4">
                   <img src={t.image} alt={t.author} className="w-12 h-12 rounded-full border border-white/10" referrerPolicy="no-referrer" />

@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Sun, Moon } from 'lucide-react';
 import { Button } from './UI';
 
 const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [theme, setTheme] = useState<'dark' | 'light'>(() => {
+    return (localStorage.getItem('theme') as 'dark' | 'light') || 'dark';
+  });
   const location = useLocation();
 
   useEffect(() => {
@@ -18,6 +21,21 @@ const Navbar: React.FC = () => {
     setMobileMenuOpen(false);
   }, [location]);
 
+  useEffect(() => {
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+      document.documentElement.classList.remove('light');
+    } else {
+      document.documentElement.classList.add('light');
+      document.documentElement.classList.remove('dark');
+    }
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(prev => prev === 'dark' ? 'light' : 'dark');
+  };
+
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
@@ -28,7 +46,7 @@ const Navbar: React.FC = () => {
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-bgPrimary/80 backdrop-blur-md border-b border-white/5 py-4' : 'bg-transparent py-6'
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-bgPrimary/80 backdrop-blur-md border-b border-textPrimary/5 py-4' : 'bg-transparent py-6'
         }`}
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
@@ -49,23 +67,31 @@ const Navbar: React.FC = () => {
               {link.name}
             </Link>
           ))}
+          <button onClick={toggleTheme} className="text-textSecondary hover:text-accentPrimary transition-colors p-2 rounded-full hover:bg-textPrimary/5">
+            {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+          </button>
           <Button variant="primary" to="/contact" className="px-6 py-2 h-10 text-xs">
             Book Strategy Call
           </Button>
         </div>
 
         {/* Mobile Toggle */}
-        <button
-          className="md:hidden text-textPrimary"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          {mobileMenuOpen ? <X /> : <Menu />}
-        </button>
+        <div className="md:hidden flex items-center gap-4">
+          <button onClick={toggleTheme} className="text-textSecondary p-2">
+            {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+          </button>
+          <button
+            className="text-textPrimary"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            {mobileMenuOpen ? <X /> : <Menu />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-bgSecondary border-b border-white/5 p-6 flex flex-col gap-4 shadow-2xl">
+        <div className="md:hidden absolute top-full left-0 w-full bg-bgSecondary border-b border-textPrimary/5 p-6 flex flex-col gap-4 shadow-2xl">
           {navLinks.map((link) => (
             <Link
               key={link.path}

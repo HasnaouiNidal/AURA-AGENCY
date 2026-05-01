@@ -3,18 +3,20 @@
 @source "../CATALOG/Ecommerce/E-commerce_01/src";
 @source "../CATALOG/Ecommerce/E-commerce_02/src";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Playfair Display", serif;
 
-  --color-bgPrimary: #0F1115;
-  --color-bgSecondary: #151922;
-  --color-surface: #1C2230;
-  --color-accentPrimary: #8B5CF6;
-  --color-accentSecondary: #22D3EE;
-  --color-accentLuxury: #C6A75E;
-  --color-textPrimary: #F8FAFC;
-  --color-textSecondary: #94A3B8;
+  --color-bgPrimary: var(--app-bgPrimary);
+  --color-bgSecondary: var(--app-bgSecondary);
+  --color-surface: var(--app-surface);
+  --color-accentPrimary: var(--app-accentPrimary);
+  --color-accentSecondary: var(--app-accentSecondary);
+  --color-accentLuxury: var(--app-accentLuxury);
+  --color-textPrimary: var(--app-textPrimary);
+  --color-textSecondary: var(--app-textSecondary);
 
   --animate-pulse-slow: pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   --animate-float: float 6s ease-in-out infinite;
@@ -52,8 +54,30 @@
 }
 
 @layer base {
+  :root {
+    --app-bgPrimary: #0F1115;
+    --app-bgSecondary: #151922;
+    --app-surface: #1C2230;
+    --app-accentPrimary: #8B5CF6;
+    --app-accentSecondary: #22D3EE;
+    --app-accentLuxury: #C6A75E;
+    --app-textPrimary: #F8FAFC;
+    --app-textSecondary: #94A3B8;
+  }
+
+  .light {
+    --app-bgPrimary: #FAFAFA;
+    --app-bgSecondary: #F1F5F9;
+    --app-surface: #FFFFFF;
+    --app-accentPrimary: #7C3AED;
+    --app-accentSecondary: #0891B2;
+    --app-accentLuxury: #B4852F;
+    --app-textPrimary: #0F172A;
+    --app-textSecondary: #475569;
+  }
+
   body {
-    @apply bg-bgPrimary text-textPrimary font-sans antialiased overflow-x-hidden selection:bg-aura-accent-end/30;
+    @apply bg-bgPrimary text-textPrimary font-sans antialiased overflow-x-hidden selection:bg-aura-accent-end/30 transition-colors duration-500;
   }
 }
 

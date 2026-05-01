@@ -13,13 +13,13 @@ const Contact: React.FC = () => {
                         {/* Info */}
                         <div className="lg:w-1/3">
                             <FadeIn>
-                                <h1 className="text-5xl font-serif font-bold mb-8">Let's Talk</h1>
+                                <h1 className="text-5xl font-serif font-bold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-accentPrimary to-accentSecondary">Let's Talk</h1>
                                 <p className="text-textSecondary mb-12">
                                     Ready to start? Fill out the form or email me directly. I usually respond within 24 hours.
                                 </p>
                                 <div className="space-y-6">
                                     <div className="flex items-center gap-4">
-                                        <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-accentPrimary">
+                                        <div className="p-2 rounded-lg bg-textPrimary/5 flex items-center justify-center text-accentPrimary">
                                             <Mail size={20} />
                                         </div>
                                         <div>
@@ -28,7 +28,7 @@ const Contact: React.FC = () => {
                                         </div>
                                     </div>
                                     <div className="flex items-center gap-4">
-                                        <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-accentPrimary">
+                                        <div className="p-2 rounded-lg bg-textPrimary/5 flex items-center justify-center text-accentPrimary">
                                             <MapPin size={20} />
                                         </div>
                                         <div>
@@ -43,26 +43,31 @@ const Contact: React.FC = () => {
                         {/* Form */}
                         <div className="lg:w-2/3">
                             <FadeIn delay={200}>
-                                <form className="bg-surface/50 backdrop-blur-md p-8 md:p-12 rounded-3xl border border-white/10 shadow-2xl">
+                                <form className="bg-surface/50 backdrop-blur-md p-8 md:p-12 rounded-3xl border border-textPrimary/10 shadow-2xl">
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                                         <div>
                                             <label className="block text-sm font-medium mb-2 text-textSecondary">Name</label>
-                                            <input type="text" className="w-full bg-bgPrimary border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-accentPrimary focus:ring-1 focus:ring-accentPrimary transition-all" placeholder="John Doe" />
+                                            <input type="text" className="w-full bg-textPrimary/5 border border-textPrimary/10 rounded-xl px-4 py-3 focus:outline-none focus:border-accentPrimary focus:ring-1 focus:ring-accentPrimary/50 transition-all duration-300" placeholder="John Doe" />
                                         </div>
                                         <div>
                                             <label className="block text-sm font-medium mb-2 text-textSecondary">Email</label>
-                                            <input type="email" className="w-full bg-bgPrimary border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-accentPrimary focus:ring-1 focus:ring-accentPrimary transition-all" placeholder="john@example.com" />
+                                            <input type="email" className="w-full bg-textPrimary/5 border border-textPrimary/10 rounded-xl px-4 py-3 focus:outline-none focus:border-accentPrimary focus:ring-1 focus:ring-accentPrimary/50 transition-all duration-300" placeholder="john@example.com" />
                                         </div>
                                     </div>
                                     <div className="mb-6">
                                         <label className="block text-sm font-medium mb-2 text-textSecondary">Subject (Optional)</label>
-                                        <input type="text" className="w-full bg-bgPrimary border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-accentPrimary focus:ring-1 focus:ring-accentPrimary transition-all" placeholder="Project Inquiry" />
+                                        <input type="text" className="w-full bg-textPrimary/5 border border-textPrimary/10 rounded-xl px-4 py-3 focus:outline-none focus:border-accentPrimary focus:ring-1 focus:ring-accentPrimary/50 transition-all duration-300" placeholder="Project Inquiry" />
                                     </div>
                                     <div className="mb-8">
                                         <label className="block text-sm font-medium mb-2 text-textSecondary">Message</label>
-                                        <textarea rows={5} className="w-full bg-bgPrimary border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-accentPrimary focus:ring-1 focus:ring-accentPrimary transition-all" placeholder="Tell me about your project..."></textarea>
+                                        <textarea rows={5} className="w-full bg-textPrimary/5 border border-textPrimary/10 rounded-xl px-4 py-3 focus:outline-none focus:border-accentPrimary focus:ring-1 focus:ring-accentPrimary/50 transition-all duration-300" placeholder="Tell me about your project..."></textarea>
                                     </div>
-                                    <Button variant="primary" className="w-full">Send Message</Button>
+                                    <div className="relative w-full group mt-4">
+                                        <div className="absolute -inset-1 bg-gradient-to-r from-accentPrimary to-accentSecondary rounded-xl blur-md opacity-40 group-hover:opacity-75 transition-all duration-500 pointer-events-none" />
+                                        <Button variant="primary" className="relative w-full py-4 text-base tracking-wide flex justify-center hover:-translate-y-1 hover:shadow-lg transition-all duration-300 ease-out">
+                                            Send Message
+                                        </Button>
+                                    </div>
                                 </form>
                             </FadeIn>
                         </div>

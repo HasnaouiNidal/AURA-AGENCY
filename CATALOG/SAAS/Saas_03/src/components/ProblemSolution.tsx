@@ -13,10 +13,10 @@ export const ProblemSolution = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight">
-              Stop drowning in <span className="text-white/40">fragmented data.</span>
+              Stop making decisions <span className="text-white/40">in the dark.</span>
             </h2>
             <p className="text-lg text-white/60 mb-12">
-              Most founders spend 15+ hours a week manually syncing spreadsheets and dashboards. AURA automates the "what" so you can focus on the "why".
+              Replace manual spreadsheets with a unified system. Aura connects your data instantly, providing a clear overview so you can focus on building your business.
             </p>
 
             <div className="space-y-6">
@@ -42,19 +42,19 @@ export const ProblemSolution = () => {
             className="glass-card p-8 rounded-3xl border-aura-accent-end/20 relative overflow-hidden"
           >
             <div className="absolute top-0 right-0 w-32 h-32 bg-aura-accent-end/10 blur-3xl" />
-            
+
             <h3 className="text-2xl font-bold mb-8 flex items-center gap-3">
               <div className="w-8 h-8 rounded-lg bg-gradient flex items-center justify-center">
                 <Check className="w-5 h-5 text-black" />
               </div>
-              The AURA Era
+              Aura Insights
             </h3>
 
             <div className="space-y-8">
               {[
-                { title: 'Automated Intelligence', desc: 'Real-time syncing with your entire tech stack.' },
-                { title: 'Predictive Modeling', desc: 'AI-driven cash flow and growth forecasting.' },
-                { title: 'One-Click Reporting', desc: 'Beautiful, investor-ready PDFs in seconds.' },
+                { title: 'Unified Data Streams', desc: 'Secure syncing with your essential business tools.' },
+                { title: 'Actionable Forecasting', desc: 'Clear models that project your future cash flow.' },
+                { title: 'Board-Ready Reports', desc: 'Clean, automated reporting formats generated instantly.' },
               ].map((item, i) => (
                 <div key={i} className="group cursor-default">
                   <h4 className="font-semibold text-aura-accent-start mb-1 flex items-center gap-2">

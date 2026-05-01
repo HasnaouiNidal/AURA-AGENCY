@@ -4,26 +4,26 @@ import { TrendingUp, PieChart, FileText, Zap } from 'lucide-react';
 
 const features = [
   {
-    title: 'AI Cash Flow Predictions',
-    desc: 'Never get surprised by your burn. Our AI models your future runway based on real-time spending and revenue trends.',
+    title: 'Precision Forecasting',
+    desc: 'Project your future runway based on accurate, real-time revenue and expense tracking.',
     icon: TrendingUp,
     color: 'from-blue-400 to-cyan-400'
   },
   {
-    title: 'Customer Growth Analytics',
-    desc: 'Deep dive into LTV, CAC, and churn. Understand exactly which cohorts are driving your growth and why.',
+    title: 'Customer Analytics',
+    desc: 'Analyze lifetime value and churn rates to understand exactly how your audience engages.',
     icon: PieChart,
     color: 'from-purple-400 to-pink-400'
   },
   {
-    title: 'Automated Investor Reports',
-    desc: 'Generate professional updates in one click. Keep your investors informed with the metrics they actually care about.',
+    title: 'Automated Reporting',
+    desc: 'Generate professional metric updates instantly. Keep your team aligned continuously.',
     icon: FileText,
     color: 'from-emerald-400 to-teal-400'
   },
   {
-    title: 'Real-time Stack Sync',
-    desc: 'Connect Stripe, Quickbooks, AWS, and 50+ other tools. AURA becomes your single source of truth instantly.',
+    title: 'Seamless Integrations',
+    desc: 'Connect your financial stack safely. Secure your single source of business truth.',
     icon: Zap,
     color: 'from-orange-400 to-yellow-400'
   }
@@ -34,9 +34,9 @@ export const Features = () => {
     <section className="py-32 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Built for the <span className="text-gradient">Relentless.</span></h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">Engineered for <span className="text-gradient">Clarity.</span></h2>
           <p className="text-white/40 max-w-2xl mx-auto">
-            Functional depth that matches our beautiful UI. Every feature is designed to give you a strategic advantage.
+            Powerful analytics wrapped in an intuitive interface. Every feature is designed to give you a clear, objective view of your business.
           </p>
         </div>
 
@@ -57,8 +57,8 @@ export const Features = () => {
               <p className="text-sm text-white/50 leading-relaxed mb-8">
                 {feature.desc}
               </p>
-              <button className="text-xs font-bold uppercase tracking-wider text-white/40 group-hover:text-aura-accent-start transition-colors flex items-center gap-2">
-                View Demo
+              <button className="text-[10px] font-bold uppercase tracking-wider text-white/40 group-hover:text-white transition-colors flex items-center gap-2">
+                Explore Feature
                 <div className="w-4 h-px bg-current" />
               </button>
             </motion.div>

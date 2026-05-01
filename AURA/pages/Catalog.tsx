@@ -22,7 +22,7 @@ const Catalog: React.FC = () => {
         <MeshBackground />
         <div className="container mx-auto px-6 relative z-10 text-center">
           <FadeIn>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8 backdrop-blur-md">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-textPrimary/5 border border-textPrimary/10 mb-8 backdrop-blur-md">
               <span className="w-1.5 h-1.5 rounded-full bg-accentSecondary animate-pulse" />
               <span className="text-xs uppercase tracking-widest text-accentSecondary">Website Catalog</span>
             </div>
@@ -44,9 +44,9 @@ const Catalog: React.FC = () => {
               <button
                 key={f}
                 onClick={() => setActiveFilter(f)}
-                className={`px-4 py-2 rounded-full text-xs font-medium transition-all duration-300 ${activeFilter === f
-                  ? 'bg-accentPrimary text-white shadow-[0_0_16px_rgba(139,92,246,0.4)]'
-                  : 'bg-surface text-textSecondary hover:text-white hover:bg-white/10'
+                className={`px-4 py-2 rounded-full text-xs transition-all duration-300 border ${activeFilter === f
+                  ? 'bg-accentPrimary/10 border-accentPrimary/20 text-accentPrimary font-semibold shadow-[0_0_15px_rgba(139,92,246,0.1)]'
+                  : 'bg-surface/50 border-textPrimary/5 text-textSecondary hover:text-textPrimary hover:bg-textPrimary/10 font-medium'
                   }`}
               >
                 {f}
@@ -80,7 +80,7 @@ const Catalog: React.FC = () => {
       </Section>
 
       {/* CTA */}
-      <Section className="bg-bgSecondary border-t border-white/5 text-center">
+      <Section className="bg-bgSecondary border-t border-textPrimary/5 text-center">
         <div className="container mx-auto px-6">
           <FadeIn>
             <h2 className="text-3xl font-serif font-bold mb-4">Don't see your category?</h2>

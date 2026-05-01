@@ -53,12 +53,12 @@ export const Button: React.FC<ButtonProps> = ({
   className = '',
   ...props
 }) => {
-  const baseStyle = "inline-flex items-center justify-center px-8 py-4 text-sm font-medium transition-all duration-300 rounded-lg group cursor-pointer";
+  const baseStyle = "inline-flex items-center justify-center px-8 py-4 text-sm font-medium transition-all duration-300 ease-out rounded-lg group cursor-pointer";
 
   const variants = {
-    primary: "bg-gradient-to-r from-accentPrimary to-blue-600 text-white hover:shadow-[0_0_28px_rgba(139,92,246,0.45)] hover:-translate-y-1 hover:scale-[1.03] active:scale-[0.98] relative overflow-hidden",
-    secondary: "bg-surface text-textPrimary hover:bg-white/10 hover:-translate-y-1 active:scale-[0.98]",
-    outline: "border border-white/10 text-textPrimary hover:border-accentPrimary hover:text-accentPrimary hover:-translate-y-1 hover:shadow-[0_0_16px_rgba(139,92,246,0.15)] active:scale-[0.98]",
+    primary: "bg-gradient-to-r from-accentPrimary to-blue-600 text-white hover:shadow-[0_0_25px_rgba(139,92,246,0.5)] hover:-translate-y-1 hover:scale-[1.03] active:scale-95 relative overflow-hidden",
+    secondary: "bg-surface text-textPrimary hover:bg-textPrimary/10 hover:-translate-y-1 active:scale-[0.98]",
+    outline: "border border-textPrimary/10 text-textPrimary hover:border-accentPrimary hover:text-accentPrimary hover:-translate-y-1 hover:shadow-[0_0_16px_rgba(139,92,246,0.15)] active:scale-[0.98]",
     gold: "bg-gradient-to-r from-accentLuxury to-yellow-600 text-white hover:shadow-[0_0_28px_rgba(198,167,94,0.4)] hover:-translate-y-1 hover:scale-[1.03] active:scale-[0.98]",
   };
 
@@ -68,8 +68,8 @@ export const Button: React.FC<ButtonProps> = ({
       {icon && <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />}
       {variant === 'primary' && (
         <>
-          <div className="absolute inset-0 rounded-lg ring-1 ring-white/20 group-hover:ring-white/50 transition-all duration-300" />
-          <div className="absolute inset-0 rounded-lg bg-white/0 group-hover:bg-white/5 transition-all duration-300" />
+          <div className="absolute inset-0 rounded-lg ring-1 ring-textPrimary/20 group-hover:ring-textPrimary/50 transition-all duration-300" />
+          <div className="absolute inset-0 rounded-lg bg-textPrimary/0 group-hover:bg-textPrimary/5 transition-all duration-300" />
         </>
       )}
     </>
@@ -99,7 +99,7 @@ export const Section: React.FC<{ children: React.ReactNode; className?: string; 
 
 // --- Card ---
 export const Card: React.FC<{ children: React.ReactNode; className?: string }> = ({ children, className = '' }) => (
-  <div className={`bg-surface/40 backdrop-blur-sm border border-white/5 p-8 rounded-2xl hover:translate-y-[-4px] hover:shadow-xl hover:shadow-accentPrimary/10 transition-all duration-300 ${className}`}>
+  <div className={`bg-surface/40 backdrop-blur-sm border border-textPrimary/5 p-8 rounded-2xl hover:-translate-y-1.5 hover:shadow-2xl hover:border-accentPrimary/50 transition-all duration-300 ease-out ${className}`}>
     {children}
   </div>
 );
@@ -140,7 +140,6 @@ export const HeroBackground: React.FC = () => {
     const PARTICLE_COUNT = 20; // Minimal count (10-25)
     const ACCENT_COLOR_1 = '#6EE7FF'; // Soft Cyan
     const ACCENT_COLOR_2 = '#8B5CF6'; // Soft Purple
-    const BASE_COLOR = '#FFFFFF';
 
     class Particle {
       x: number;
@@ -159,11 +158,11 @@ export const HeroBackground: React.FC = () => {
         this.vx = (Math.random() - 0.5) * 0.15; // Extremely slow velocity
         this.vy = (Math.random() - 0.5) * 0.15;
 
-        // Color distribution (80% white, 20% accent)
+        // Color distribution (80% base, 20% accent)
         const rand = Math.random();
         if (rand > 0.9) this.color = ACCENT_COLOR_1;
         else if (rand > 0.8) this.color = ACCENT_COLOR_2;
-        else this.color = BASE_COLOR;
+        else this.color = 'BASE_COLOR';
 
         this.baseAlpha = Math.random() * 0.1 + 0.05; // 0.05 - 0.15 opacity
         this.alpha = this.baseAlpha;
@@ -189,12 +188,15 @@ export const HeroBackground: React.FC = () => {
         ctx.beginPath();
         ctx.arc(this.x + parallaxX, this.y + parallaxY, this.size, 0, Math.PI * 2);
 
-        ctx.fillStyle = this.color;
+        const isLight = document.body.classList.contains('light');
+        const resolvedColor = this.color === 'BASE_COLOR' ? (isLight ? '#0F172A' : '#FFFFFF') : this.color;
+
+        ctx.fillStyle = resolvedColor;
         ctx.globalAlpha = this.alpha;
 
         // Soft Glow
         ctx.shadowBlur = 15;
-        ctx.shadowColor = this.color;
+        ctx.shadowColor = resolvedColor;
 
         ctx.fill();
 
@@ -254,7 +256,7 @@ export const HeroBackground: React.FC = () => {
   return (
     <div ref={containerRef} className="absolute inset-0 overflow-hidden pointer-events-none -z-10 bg-bgPrimary">
       {/* Deep Background Gradient Base - Subtle Atmospheric */}
-      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-bgPrimary via-[#13161c] to-bgPrimary opacity-80" />
+      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-bgPrimary via-bgSecondary to-bgPrimary opacity-80" />
 
       {/* Very faint accent glows for depth */}
       <div className="absolute top-[-20%] left-[-10%] w-[50vw] h-[50vw] bg-accentPrimary/5 rounded-full blur-[150px]" />
